@@ -1,4 +1,4 @@
-```javascript
+
 window.BUSINESS_TOPICS = window.BUSINESS_TOPICS || [];
 
 window.BUSINESS_TOPICS.push(
@@ -238,4 +238,3 @@ window.BUSINESS_TOPICS.push(
     ]
   }
 );
-```
