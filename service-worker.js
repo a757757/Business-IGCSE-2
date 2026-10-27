@@ -1,5 +1,5 @@
 
-const CACHE_NAME = "business-igcse-pwa-v1";
+const CACHE_NAME = "business-igcse-pwa-v2";
 
 const CORE_FILES = [
   "/",
@@ -17,6 +17,10 @@ const CORE_FILES = [
   "/content/content-6.js",
   "/content/content-7.js",
   "/content/content-8.js",
+  "/content/content-9.js",
+  "/content/content-10.js",
+  "/content/content-11.js",
+  "/content/content-12.js",
   "/manifest.webmanifest",
   "/icon.svg",
   "/pwa-register.js"
@@ -54,29 +58,34 @@ self.addEventListener("fetch", event => {
     return;
   }
 
+  // Check the network first so updated files are preferred.
   event.respondWith(
-    caches.match(request).then(cached => {
-      if (cached) return cached;
+    fetch(request)
+      .then(response => {
+        if (response && response.ok) {
+          const copy = response.clone();
 
-      return fetch(request)
-        .then(response => {
-          if (response && response.ok) {
-            const copy = response.clone();
+          caches.open(CACHE_NAME).then(cache => {
+            cache.put(request, copy);
+          });
+        }
 
-            caches.open(CACHE_NAME).then(cache => {
-              cache.put(request, copy);
-            });
-          }
+        return response;
+      })
+      .catch(async () => {
+        const cached = await caches.match(request);
 
-          return response;
-        })
-        .catch(() => {
-          if (request.mode === "navigate") {
-            return caches.match("/index.html");
-          }
+        if (cached) return cached;
 
-          throw new Error("Offline and resource not cached");
+        if (request.mode === "navigate") {
+          const page = await caches.match("/index.html");
+          if (page) return page;
+        }
+
+        return new Response("You are offline and this resource is not cached.", {
+          status: 503,
+          headers: { "Content-Type": "text/plain; charset=utf-8" }
         });
-    })
+      })
   );
 });
