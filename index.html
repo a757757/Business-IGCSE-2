@@ -1,0 +1,216 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173b63">
+  <meta name="description" content="Free Edexcel International GCSE Business revision">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/icon.svg">
+  <link rel="stylesheet" href="/styles.css">
+
+  <title>Business IGCSE — Learn, Practise, Improve</title>
+</head>
+<body>
+<header>
+  <a class="brand" href="#">
+    B<span>Business IGCSE<small>Learn · Practise · Improve</small></span>
+  </a>
+  <nav>
+    <button data-view="lessons" class="active">Lessons</button>
+    <button data-view="practice">Practice</button>
+    <button data-view="tutor">Study Helper</button>
+    <button data-view="progress">My Progress</button>
+  </nav>
+</header>
+
+<main>
+  <!-- Adsterra placement: deliberately inactive for now -->
+  <div class="ad-slot ad-slot-top" hidden>
+    <!-- ADSTERRA_SLOT_TOP: Add your real Adsterra code here later. -->
+  </div>
+
+  <section class="hero">
+    <div>
+      <p class="eyebrow">PEARSON EDEXCEL INTERNATIONAL GCSE · 4BS1</p>
+      <h1>Understand business.<br><em>Build exam confidence.</em></h1>
+      <p>Revision lessons, topic search, a content-based study helper and practice questions. No account needed.</p>
+      <button class="primary" data-go="lessons">Explore lessons →</button>
+      <button data-go="practice">Practise now</button>
+    </div>
+
+    <aside>
+      <small>YOUR REVISION · SAVED ON THIS DEVICE</small>
+      <h2><b id="hero-completed">0</b> lessons completed</h2>
+      <div class="track"><i id="hero-bar"></i></div>
+      <p id="hero-pct">0% complete</p>
+      <hr>
+      <p><b>5</b> syllabus sections · <b>100</b> practice questions · <b>0</b> accounts required</p>
+    </aside>
+  </section>
+
+  <div class="warning">
+    <b>Your progress is stored only in this browser.</b>
+    It may be lost if browser/site data is cleared, private browsing is used,
+    or you switch browsers or devices. There is no account or cloud backup.
+  </div>
+
+  <!-- Reserved for future advertising. Hidden until you activate it. -->
+  <div class="ad-slot ad-slot-content" hidden>
+    <!-- ADSTERRA_SLOT_CONTENT: Add your real Adsterra code here later. -->
+  </div>
+
+  <section id="view-lessons" class="view active">
+    <div class="heading">
+      <div>
+        <p class="eyebrow">STUDY AT YOUR PACE</p>
+        <h2>Explore the lessons</h2>
+        <p>Search topics, filter by section, study and mark lessons complete.</p>
+      </div>
+      <strong id="lesson-count">0 lessons</strong>
+    </div>
+
+    <div class="toolbar">
+      <input id="search" type="search" placeholder="Search lessons, definitions and keywords…">
+      <select id="filter">
+        <option value="all">All sections</option>
+      </select>
+      <label><input id="hide-completed" type="checkbox"> Hide completed</label>
+    </div>
+
+    <div id="tabs" class="tabs"></div>
+    <div id="lesson-list" class="lesson-list"></div>
+    <p id="empty" hidden>No lessons match your search.</p>
+  </section>
+
+  <section id="view-practice" class="view">
+    <div class="heading">
+      <div>
+        <p class="eyebrow">CHECK YOUR UNDERSTANDING</p>
+        <h2>Business knowledge practice</h2>
+        <p>Practice questions with answers and explanations.</p>
+      </div>
+    </div>
+    <div class="toolbar">
+      <select id="practice-filter">
+        <option value="all">All sections</option>
+      </select>
+      <select id="practice-count">
+        <option value="10">10 questions</option>
+        <option value="20">20 questions</option>
+        <option value="all">All available questions</option>
+      </select>
+      <button class="primary" id="start">Start practice</button>
+    </div>
+    <div id="practice-area" class="panel">
+      <h3>Ready to test yourself?</h3>
+      <p>Choose a section and start a practice set. Feedback appears after each answer.</p>
+    </div>
+  </section>
+
+  <section id="view-tutor" class="view">
+    <div class="heading">
+      <div>
+        <p class="eyebrow">SEARCH THE REVISION CONTENT</p>
+        <h2>Business Study Helper</h2>
+        <p>This is a content-search tool, not a generative AI model. It searches the lessons on this site.</p>
+      </div>
+    </div>
+
+    <div class="tutor">
+      <aside>
+        <h3>Ask about Business</h3>
+        <p>Try “cash flow”, “benefits of market research”, “Boston Matrix” or “quality control”.</p>
+        <div class="suggestions">
+          <button>What is cash flow?</button>
+          <button>Benefits of market research</button>
+          <button>Explain the Boston Matrix</button>
+          <button>What is quality control?</button>
+        </div>
+      </aside>
+
+      <div class="panel">
+        <div id="messages">
+          <p class="bubble">Hi! Ask a Business IGCSE question. I'll search the lessons for relevant explanations.</p>
+        </div>
+        <form id="tutor-form">
+          <input id="tutor-input" placeholder="Ask about a business topic…" maxlength="300" required>
+          <button class="primary">Search</button>
+        </form>
+        <small>The helper can only answer from the content included on this site.</small>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-progress" class="view">
+    <div class="heading">
+      <div>
+        <p class="eyebrow">YOUR LOCAL REVISION RECORD</p>
+        <h2>My Progress</h2>
+        <p>Your progress is stored on this device and is not shared with a school or teacher.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2 id="progress-percent">0%</h2>
+      <div class="track"><i id="progress-bar"></i></div>
+      <p id="progress-summary">0 of 0 lessons completed</p>
+      <button id="reset">Reset my progress</button>
+    </div>
+    <div id="section-progress" class="lesson-list"></div>
+    <div class="warning">
+      Local storage is not a backup. Clearing browser/site data, using private browsing,
+      or switching browsers/devices may remove or hide progress.
+    </div>
+  </section>
+
+  <footer>
+    <b>Business IGCSE</b>
+    <p>
+      Independent revision resource for Pearson Edexcel International GCSE Business (4BS1).
+      Not affiliated with or endorsed by Pearson. Check the current official specification
+      and your teacher's guidance.
+    </p>
+  </footer>
+
+  <div class="ad-slot ad-slot-footer" hidden>
+    <!-- ADSTERRA_SLOT_FOOTER: Add your real Adsterra code here later. -->
+  </div>
+</main>
+
+<dialog id="lesson-dialog">
+  <div class="dialog-top">
+    <div>
+      <small id="dialog-section"></small>
+      <h2 id="dialog-title"></h2>
+    </div>
+    <button id="close" aria-label="Close lesson">×</button>
+  </div>
+  <div id="dialog-body"></div>
+  <div class="dialog-bottom">
+    <span id="dialog-status"></span>
+    <button class="primary" id="complete">Mark as Complete</button>
+  </div>
+</dialog>
+
+<script src="/config.js"></script>
+<script src="/content/content-1.js"></script>
+<script src="/content/content-2.js"></script>
+<script src="/content/content-3.js"></script>
+<script src="/content/content-4.js"></script>
+<script src="/content/content-5.js"></script>
+<script src="/content/content-6.js"></script>
+<script src="/content/content-7.js"></script>
+<script src="/content/content-8.js"></script>
+<script src="/practice.js"></script>
+<script src="/tutor.js"></script>
+<script src="/app.js"></script>
+<script src="/pwa-register.js"></script>
+</body>
+</html>
