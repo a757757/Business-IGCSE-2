@@ -1,0 +1,21 @@
+
+{
+  "id": "/",
+  "name": "Business IGCSE — Learn, Practise, Improve",
+  "short_name": "Business IGCSE",
+  "description": "Free Business IGCSE revision lessons and practice.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f6f8fb",
+  "theme_color": "#173b63",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
