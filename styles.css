@@ -1,0 +1,551 @@
+
+:root {
+  --navy: #173b63;
+  --blue: #2765a6;
+  --ink: #1e293b;
+  --muted: #64748b;
+  --line: #e2e8f0;
+  --bg: #f7f9fc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 15px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+header {
+  background: white;
+  border-bottom: 1px solid var(--line);
+  padding: 14px max(18px, calc((100vw - 1120px) / 2));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.brand {
+  color: var(--navy);
+  font-weight: 850;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand:first-letter {
+  background: var(--navy);
+  color: white;
+  padding: 9px 13px;
+  border-radius: 10px;
+}
+
+.brand small {
+  display: block;
+  font-size: 10px;
+  color: var(--muted);
+}
+
+nav {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+button, select, input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 10px 13px;
+  background: white;
+  color: var(--navy);
+  font-weight: 650;
+}
+
+button:hover,
+nav button.active {
+  background: #eaf3fc;
+  color: var(--navy);
+}
+
+button.primary {
+  background: var(--navy);
+  color: white;
+  border-color: var(--navy);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: .55;
+}
+
+main {
+  max-width: 1120px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 32px;
+  align-items: center;
+  padding: 54px 0 28px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 1.4px;
+  color: var(--blue);
+  font-weight: 800;
+  margin: 0 0 8px;
+}
+
+.hero h1 {
+  font-size: clamp(34px, 5vw, 54px);
+  line-height: 1.1;
+  letter-spacing: -1.8px;
+  color: #102d4c;
+  margin: 8px 0 18px;
+}
+
+.hero em {
+  color: var(--blue);
+  font-style: normal;
+}
+
+.hero p {
+  color: var(--muted);
+}
+
+.hero aside,
+.panel,
+.lesson-card,
+.section-card {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 8px 24px #173b6308;
+}
+
+.track {
+  height: 9px;
+  background: #e8eef5;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.track i {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: #26815d;
+}
+
+.warning {
+  background: #fff5dc;
+  border: 1px solid #f0dfad;
+  color: #6c521b;
+  border-radius: 11px;
+  padding: 14px 16px;
+  margin: 12px 0 32px;
+  font-size: 13px;
+}
+
+.warning b {
+  display: block;
+}
+
+.view {
+  display: none;
+  padding-bottom: 50px;
+}
+
+.view.active {
+  display: block;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 18px;
+  margin: 15px 0 20px;
+}
+
+.heading h2 {
+  font-size: 30px;
+  letter-spacing: -.8px;
+  color: #17324e;
+  margin: 0;
+}
+
+.heading p:not(.eyebrow) {
+  color: var(--muted);
+  margin: 5px 0;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 18px 0;
+}
+
+.toolbar input[type="search"],
+#tutor-input {
+  flex: 1;
+  min-width: 220px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 12px;
+  background: white;
+}
+
+.toolbar select {
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 12px;
+  background: white;
+}
+
+.tabs {
+  display: flex;
+  gap: 7px;
+  overflow: auto;
+  padding: 3px 0 14px;
+}
+
+.tabs button {
+  white-space: nowrap;
+  border-radius: 99px;
+  font-size: 12px;
+}
+
+.tabs button.active {
+  background: var(--navy);
+  color: white;
+}
+
+.lesson-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.lesson-card {
+  display: flex;
+  align-items: start;
+  gap: 12px;
+  padding: 16px;
+  box-shadow: none;
+}
+
+.lesson-card.done {
+  border-color: #acd8bf;
+}
+
+.lesson-icon {
+  width: 35px;
+  height: 35px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  background: #eaf3fc;
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.lesson-card.done .lesson-icon {
+  background: #e7f6ee;
+  color: #18794e;
+}
+
+.lesson-card h3 {
+  font-size: 15px;
+  margin: 0 0 5px;
+  color: var(--navy);
+}
+
+.lesson-card p {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+
+.lesson-card .open {
+  margin-left: auto;
+  border: 0;
+  color: var(--blue);
+  padding: 3px;
+}
+
+.muted, small {
+  color: var(--muted);
+}
+
+footer {
+  border-top: 1px solid var(--line);
+  padding: 25px 0 35px;
+  color: #8290a0;
+  font-size: 11px;
+}
+
+footer b {
+  color: var(--navy);
+}
+
+dialog {
+  border: 0;
+  border-radius: 16px;
+  padding: 0;
+  width: min(760px, calc(100% - 24px));
+  max-height: 88vh;
+  box-shadow: 0 25px 70px #102d4c55;
+}
+
+dialog::backdrop {
+  background: #0d223a99;
+}
+
+.dialog-top,
+.dialog-bottom {
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.dialog-top h2 {
+  margin: 0;
+  color: var(--navy);
+}
+
+.dialog-top small {
+  color: var(--blue);
+}
+
+.dialog-top button {
+  font-size: 22px;
+}
+
+.dialog-bottom {
+  border-top: 1px solid var(--line);
+  border-bottom: 0;
+}
+
+#dialog-body {
+  padding: 20px 24px;
+  overflow: auto;
+  max-height: 58vh;
+}
+
+#dialog-body h3 {
+  color: var(--navy);
+  margin: 22px 0 6px;
+}
+
+#dialog-body p,
+#dialog-body li {
+  font-size: 14px;
+  color: #405267;
+}
+
+.tip {
+  background: #eaf7f0;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.example {
+  background: #eef6ff;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.tutor {
+  display: grid;
+  grid-template-columns: .7fr 1.3fr;
+  gap: 15px;
+}
+
+.tutor aside {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.suggestions {
+  display: grid;
+  gap: 7px;
+  margin-top: 15px;
+}
+
+.suggestions button {
+  text-align: left;
+  font-size: 12px;
+}
+
+.bubble {
+  padding: 12px;
+  background: #eef4fa;
+  border-radius: 10px;
+  white-space: pre-wrap;
+  font-size: 13px;
+}
+
+.bubble.user {
+  background: var(--navy);
+  color: white;
+  margin-left: 20%;
+}
+
+#messages {
+  min-height: 230px;
+  max-height: 440px;
+  overflow: auto;
+}
+
+#tutor-form {
+  display: flex;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.practice-q {
+  font-size: 20px;
+  color: var(--navy);
+}
+
+.answers {
+  display: grid;
+  gap: 8px;
+}
+
+.answers button {
+  text-align: left;
+}
+
+.answers button.correct {
+  background: #e7f6ee;
+  border-color: #70bc91;
+}
+
+.answers button.wrong {
+  background: #fff0f0;
+  border-color: #e2a4a4;
+}
+
+.feedback {
+  padding: 12px;
+  margin-top: 12px;
+  border-radius: 9px;
+  background: #edf7f0;
+}
+
+.section-card {
+  box-shadow: none;
+}
+
+.section-card h3 {
+  margin: 0 0 8px;
+  color: var(--navy);
+}
+
+/* Ad placements are hidden until you choose to activate them. */
+.ad-slot {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 970px;
+  min-height: 90px;
+  margin: 18px auto;
+  padding: 12px;
+  border: 1px dashed #9aa9b8;
+  border-radius: 12px;
+  color: #617184;
+  text-align: center;
+}
+
+.ad-slot[hidden],
+[hidden] {
+  display: none !important;
+}
+
+@media (display-mode: standalone) {
+  body {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+@media (max-width: 760px) {
+  header {
+    position: static;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 14px 18px;
+  }
+
+  nav {
+    width: 100%;
+    overflow: auto;
+    flex-wrap: nowrap;
+  }
+
+  nav button {
+    white-space: nowrap;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 32px;
+  }
+
+  .lesson-list,
+  .tutor {
+    grid-template-columns: 1fr;
+  }
+
+  .heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  main {
+    padding: 0 15px;
+  }
+
+  .toolbar > * {
+    max-width: 100%;
+  }
+
+  .toolbar input[type="search"] {
+    min-width: 0;
+  }
+
+  .dialog-top,
+  .dialog-bottom {
+    padding: 16px;
+  }
+
+  .hero h1 {
+    font-size: 39px;
+  }
+}
